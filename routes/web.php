@@ -13,15 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/home', function () {
-    return view('home');
+    return view('home', [
+        "title" => "Home"
+    ]);
 });
 
+
+
+
 Route::get('/order', function () {
-    return view('order');
+    return view('/order', [
+        "title" => "Order"
+    ]);
 });
 
 Route::get('/product', function () {
-    return view('product');
+
+    $blog_product = [
+        [
+            "title" => "Isi Product Pertama",
+            "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus a voluptatem impedit perspiciatis labore tempore illum ipsam velit iste. Dignissimos deleniti quae vero nostrum et accusantium velit delectus sit voluptas."
+        ]
+    ];
+
+    return view('product', [
+        "title" => "Product",
+        "product" => $blog_product
+    ]);
 });
